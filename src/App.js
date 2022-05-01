@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react'
+import StatsContainer from './components/StatsContainer'
+import CustomerContainer from './components/CustomerContainer'
+import OrderContainer from './components/OrderContainer'
+import customerData from './DB/customerData'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = (props) => {
+  
+  const [customers, setCustomers] = useState(customerData)
+
+  return (<div className='container'>
+                <h1 className='Display-4'>Customer Dashboard</h1>
+                <StatsContainer customers={customers}/>
+                <CustomerContainer customers={customers}/>
+                <OrderContainer customers={customers}/>
+          </div>)
 }
 
-export default App;
+export default App
