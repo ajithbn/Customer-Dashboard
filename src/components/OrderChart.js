@@ -2,6 +2,7 @@ import React from "react";
 
 const OrderChart = (props) => {
   const { data } = props;
+  const google = window.google
 
   google.charts.load("current", { packages: ["corechart"] });
   google.charts.setOnLoadCallback(drawChart);
